@@ -40,17 +40,58 @@
 
 ## 同时使用github和gitee
 
-1.新建仓库github
->git init
->git remote add origin ...
+### 配置github和gitee的公钥
+
+1.生成公钥
+
+```c
+ssh-keygen -t rsa -C 'github邮箱号' -f ~/.ssh/id_rsa_github
+ssh-keygen -t rsa -C 'gitee邮箱号' -f ~/.ssh/id_rsa_gitee
+```
+
+2.添加公钥到github和gitee
+
+3.配置config
+>进入.ssh文件，有则直接修改，无则重新创建
+
+```c
+gitee
+Host gitee.com
+HostName gitee.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa_gitee
+github
+Host github.com
+HostName github.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa_github
+```
+
+4.测试链接
+
+```c
+gitee
+ssh -T git@gitee.com
+github
+ssh -T git@github.com
+```
+
+### 使用git上传github和gitee
+
+1.新建仓库初始化
+
+```c
+git init
+```
 
 2.添加两条仓库地址
->git init
->touch README.md
->git add README.md
->git commit -m "first commit"
->git remote add github [github仓库地址_建议采用ssh地址]
->git remote add gitee [gitee仓库地址_建议采用ssh地址]
+
+```c
+git add . //添加全部文件
+git commit -m "first commit" //添加上传注释
+git remote add github [github仓库地址_建议采用ssh地址]
+git remote add gitee [gitee仓库地址_建议采用ssh地址]
+```
 
 3.推送更改为
 >git push github main
