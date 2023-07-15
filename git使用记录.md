@@ -44,21 +44,19 @@
 >git init
 >git remote add origin ...
 
-2.查看当前
->git remote
-不出意外会输出
-origin
-远程仓库重命名
-git remote rename origin github
-可以再次查看，会输出
-github origin  https://github.com/&lt;远程地址&gt; (fetch)
-github origin  https://github.com/&lt;远程地址&gt; (push)
-添加码云的地址
-git remote add <u>gitee</u> &lt;远程地址&gt;
-推送更改为
-git push github main
-git pull github main
-git push gitee main
-git pull gitee main
-删除一个远程仓库地址
-git remote remove gitee
+2.添加两条仓库地址
+>git init
+>touch README.md
+>git add README.md
+>git commit -m "first commit"
+>git remote add github [github仓库地址_建议采用ssh地址]
+>git remote add gitee [gitee仓库地址_建议采用ssh地址]
+
+3.推送更改为
+>git push github main
+>git pull github main
+>git push gitee main
+>git pull gitee main
+
+4.删除一个远程仓库地址
+>git remote rm gitee
