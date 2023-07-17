@@ -7,7 +7,7 @@
 ### extends关键字
 
 在 Java 中，类的继承是单一继承，也就是说，一个子类只能拥有一个父类，所以 extends 只能继承一个类。
- 
+
 ```java
 public class Animal { 
     private String name;   
