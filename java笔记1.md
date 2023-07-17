@@ -2,21 +2,21 @@
 
 ## 记录1.print/printf/println区别
 
-1.print为一般输出，同样不能保留精度格式转化，也不能换行输出。
-2.printf常用于格式转换，但需要注意不是换行输出，只用于精度转换。
+1. print为一般输出，同样不能保留精度格式转化，也不能换行输出。
+2. printf常用于格式转换，但需要注意不是换行输出，只用于精度转换。
     例  System.out.printf("%12.4f",a);代表输出占12个位宽，精确到4位小数。
-3.println为换行输出，不能用于格式转换。  
+3. println为换行输出，不能用于格式转换。  
 
 ## 记录2.自减自增
 
-1.x++和++x
-对于第一个（x++），因为x++是先取值后自增，所以（x++）所取得值为3，然后x进行自增，此时x=4；对于第二个（++x），因为++x是先自增后取值，所以（++x）所取得值为5，此时x=5，所以结果为8。
-2.--a和a--
-a++ 表示先赋值再进行加运算
-a-- 表示先赋值再进行减运算
-++a 表示先进行加运算再赋值
---a 表示先进行减运算再赋值
-注：从上面的概念理解很抽象
+1. x++和++x
+  对于第一个（x++），因为x++是先取值后自增，所以（x++）所取得值为3，然后x进行自增，此时x=4；对于第二个（++x），因为++x是先自增后取值，所以（++x）所取得值为5，此时x=5，所以结果为8。
+2. --a和a--
+  a++ 表示先赋值再进行加运算
+  a-- 表示先赋值再进行减运算
+  ++a 表示先进行加运算再赋值
+  --a 表示先进行减运算再赋值
+  注：从上面的概念理解很抽象
 
 ## 记录3.异常处理
 
@@ -47,13 +47,13 @@ try {
 
 3. 实例
 
-```java
-public void checkNumber(int num) {
-  if (num < 0) {
-    throw new IllegalArgumentException("Number must be positive");
+  ```java
+  public void checkNumber(int num) {
+    if (num < 0) {
+      throw new IllegalArgumentException("Number must be positive");
+    }
   }
-}
-```
+  ```
 
 #### throws 关键字
 
@@ -63,33 +63,32 @@ public void checkNumber(int num) {
 2. 例如，下面的代码中，当 readFile 方法内部发生 IOException 异常时，会将该异常传递给调用该方法的代码。在调用该方法的代码中，必须捕获或声明处理 IOException 异常。
 3. 实例
 
-```java
-public void readFile(String filePath) throws IOException {
-  BufferedReader reader = new BufferedReader(new FileReader(filePath));
-  String line = reader.readLine();
-  while (line != null) {
-    System.out.println(line);
-    line = reader.readLine();
-  }
-  reader.close();
-}
-```
+  ```java
+  public void readFile(String filePath) throws IOException {
+    BufferedReader reader = new BufferedReader(new FileReader(filePath));
+    String line = reader.readLine();
+    while (line != null) {
+      System.out.println(line);
+      line = reader.readLine();
+    }
+    reader.close();
+  }```
 
-一个方法可以声明抛出多个异常，多个异常之间用逗号隔开。
+4. 一个方法可以声明抛出多个异常，多个异常之间用逗号隔开。
 例如，下面的方法声明抛出 RemoteException 和 InsufficientFundsException：
 
-```Java
-import java.io.*;
-public class className
-{
-   public void withdraw(double amount) throws RemoteException,
-                              InsufficientFundsException
-   {
-       // Method implementation
-   }
-   //Remainder of class definition
-}
-```
+  ```Java
+  import java.io.*;
+  public class className
+  {
+    public void withdraw(double amount) throws RemoteException,
+                                InsufficientFundsException
+    {
+        // Method implementation
+    }
+    //Remainder of class definition
+  }
+  ```
 
 #### finally关键字
 
@@ -101,24 +100,24 @@ public class className
 
 3. 实例
 
-``` java
-ExcepTest.java 文件代码：
-public class ExcepTest{
-  public static void main(String args[]){
-    int a[] = new int[2];
-    try{
-       System.out.println("Access element three :" + a[3]);
-    }catch(ArrayIndexOutOfBoundsException e){
-       System.out.println("Exception thrown  :" + e);
-    }
-    finally{
-       a[0] = 6;
-       System.out.println("First element value: " +a[0]);
-       System.out.println("The finally statement is executed");
+  ``` java
+  ExcepTest.java 文件代码：
+  public class ExcepTest{
+    public static void main(String args[]){
+      int a[] = new int[2];
+      try{
+        System.out.println("Access element three :" + a[3]);
+      }catch(ArrayIndexOutOfBoundsException e){
+        System.out.println("Exception thrown  :" + e);
+      }
+      finally{
+        a[0] = 6;
+        System.out.println("First element value: " +a[0]);
+        System.out.println("The finally statement is executed");
+      }
     }
   }
-}
-```
+  ```
 
 #### try-with-resources
 
@@ -128,35 +127,35 @@ public class ExcepTest{
 
 3. try···catch 与try-with-resources
 
-```java
-try  {
-  // 使用的资源
-} catch (ExceptionType e1) {
-  // 异常块
-}
-   try (resource declaration) {
-  // 使用的资源
-} catch (ExceptionType e1) {
-  // 异常块
-}
-```
+  ```java
+  try  {
+      // 使用的资源
+    } catch (ExceptionType e1) {
+      // 异常块
+    }
+      try (resource declaration) {
+      // 使用的资源
+    } catch (ExceptionType e1) {
+      // 异常块
+    }
+    ```
 
-实例
+4. 实例
 
-```java
-import java.io.*;
+  ```java
+  import java.io.*;
 
-public class RunoobTest {
+  public class RunoobTest {
 
-    public static void main(String[] args) {
-    String line;
-        try(BufferedReader br = new BufferedReader(new FileReader("test.txt"))) {
-            while ((line = br.readLine()) != null) {
-                System.out.println("Line =>"+line);
-            }
-        } catch (IOException e) {
-            System.out.println("IOException in try block =>" + e.getMessage());
-        }
-    }
-}
-```
+      public static void main(String[] args) {
+      String line;
+          try(BufferedReader br = new BufferedReader(new FileReader("test.txt"))) {
+              while ((line = br.readLine()) != null) {
+                  System.out.println("Line =>"+line);
+              }
+          } catch (IOException e) {
+              System.out.println("IOException in try block =>" + e.getMessage());
+          }
+      }
+  }
+  ```
