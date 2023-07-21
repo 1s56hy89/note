@@ -142,7 +142,8 @@ public class Box<T> {
       public static void getData(List<?> data) {
          System.out.println("data :" + data.get(0));
       }
-   }```
+   }
+   ```
 
 2. 类型通配符上限通过形如List来定义，如此定义就是通配符泛型值接受Number及其下层子类类型。
 

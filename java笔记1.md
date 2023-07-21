@@ -47,13 +47,13 @@ try {
 
 3. 实例
 
-  ```java
-  public void checkNumber(int num) {
-    if (num < 0) {
-      throw new IllegalArgumentException("Number must be positive");
+    ```java
+    public void checkNumber(int num) {
+      if (num < 0) {
+        throw new IllegalArgumentException("Number must be positive");
+      }
     }
-  }
-  ```
+    ```
 
 #### throws 关键字
 
@@ -63,32 +63,32 @@ try {
 2. 例如，下面的代码中，当 readFile 方法内部发生 IOException 异常时，会将该异常传递给调用该方法的代码。在调用该方法的代码中，必须捕获或声明处理 IOException 异常。
 3. 实例
 
-  ```java
-  public void readFile(String filePath) throws IOException {
-    BufferedReader reader = new BufferedReader(new FileReader(filePath));
-    String line = reader.readLine();
-    while (line != null) {
-      System.out.println(line);
-      line = reader.readLine();
-    }
-    reader.close();
-  }```
+    ```java
+    public void readFile(String filePath) throws IOException {
+      BufferedReader reader = new BufferedReader(new FileReader(filePath));
+      String line = reader.readLine();
+      while (line != null) {
+        System.out.println(line);
+        line = reader.readLine();
+      }
+      reader.close();
+    }```
 
 4. 一个方法可以声明抛出多个异常，多个异常之间用逗号隔开。
 例如，下面的方法声明抛出 RemoteException 和 InsufficientFundsException：
 
-  ```Java
-  import java.io.*;
-  public class className
-  {
-    public void withdraw(double amount) throws RemoteException,
-                                InsufficientFundsException
+    ```Java
+    import java.io.*;
+    public class className
     {
-        // Method implementation
+      public void withdraw(double amount) throws RemoteException,
+                                  InsufficientFundsException
+      {
+          // Method implementation
+      }
+      //Remainder of class definition
     }
-    //Remainder of class definition
-  }
-  ```
+    ```
 
 #### finally关键字
 
@@ -100,24 +100,24 @@ try {
 
 3. 实例
 
-  ``` java
-  ExcepTest.java 文件代码：
-  public class ExcepTest{
-    public static void main(String args[]){
-      int a[] = new int[2];
-      try{
-        System.out.println("Access element three :" + a[3]);
-      }catch(ArrayIndexOutOfBoundsException e){
-        System.out.println("Exception thrown  :" + e);
-      }
-      finally{
-        a[0] = 6;
-        System.out.println("First element value: " +a[0]);
-        System.out.println("The finally statement is executed");
+    ``` java
+    ExcepTest.java 文件代码：
+    public class ExcepTest{
+      public static void main(String args[]){
+        int a[] = new int[2];
+        try{
+          System.out.println("Access element three :" + a[3]);
+        }catch(ArrayIndexOutOfBoundsException e){
+          System.out.println("Exception thrown  :" + e);
+        }
+        finally{
+          a[0] = 6;
+          System.out.println("First element value: " +a[0]);
+          System.out.println("The finally statement is executed");
+        }
       }
     }
-  }
-  ```
+    ```
 
 #### try-with-resources
 
@@ -127,35 +127,35 @@ try {
 
 3. try···catch 与try-with-resources
 
-  ```java
-  try  {
-      // 使用的资源
+    ```java
+    try  {
+    // 使用的资源
     } catch (ExceptionType e1) {
-      // 异常块
+    // 异常块
     }
-      try (resource declaration) {
-      // 使用的资源
+    try (resource declaration) {
+    // 使用的资源
     } catch (ExceptionType e1) {
-      // 异常块
+    // 异常块
     }
     ```
 
 4. 实例
 
-  ```java
-  import java.io.*;
+    ```java
+    import java.io.*;
 
-  public class RunoobTest {
+    public class RunoobTest {
 
-      public static void main(String[] args) {
-      String line;
-          try(BufferedReader br = new BufferedReader(new FileReader("test.txt"))) {
-              while ((line = br.readLine()) != null) {
-                  System.out.println("Line =>"+line);
-              }
-          } catch (IOException e) {
-              System.out.println("IOException in try block =>" + e.getMessage());
-          }
-      }
-  }
-  ```
+        public static void main(String[] args) {
+        String line;
+            try(BufferedReader br = new BufferedReader(new FileReader("test.txt"))) {
+                while ((line = br.readLine()) != null) {
+                    System.out.println("Line =>"+line);
+                }
+            } catch (IOException e) {
+                System.out.println("IOException in try block =>" + e.getMessage());
+            }
+        }
+    }
+    ```

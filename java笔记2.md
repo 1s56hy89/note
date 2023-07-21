@@ -8,38 +8,38 @@
 
 在 Java 中，类的继承是单一继承，也就是说，一个子类只能拥有一个父类，所以 extends 只能继承一个类。
 
-  ```java
-  public class Animal { 
-      private String name;   
-      private int id; 
-      public Animal(String myName, int myid) { 
-          //初始化属性值
-      } 
-      public void eat() {  //吃东西方法的具体实现  } 
-      public void sleep() { //睡觉方法的具体实现  } 
-  } 
-  
-  public class Penguin  extends  Animal{ 
-  }
-  ```
+```java
+public class Animal { 
+    private String name;   
+    private int id; 
+    public Animal(String myName, int myid) { 
+        //初始化属性值
+    } 
+    public void eat() {  //吃东西方法的具体实现  } 
+    public void sleep() { //睡觉方法的具体实现  } 
+} 
+
+public class Penguin  extends  Animal{ 
+}
+```
 
 ### implements关键字
 
 使用 implements 关键字可以变相的使java具有多继承的特性，使用范围为类继承接口的情况，可以同时继承多个接口（接口跟接口之间采用逗号分隔）。
 
-  ```java
-  public interface A {
-      public void eat();
-      public void sleep();
-  }
-  
-  public interface B {
-      public void show();
-  }
-  
-  public class C implements A,B {
-  }
-  ```
+```java
+public interface A {
+    public void eat();
+    public void sleep();
+}
+
+public interface B {
+    public void show();
+}
+
+public class C implements A,B {
+}
+```
 
 ### super 与 this 关键字
 
@@ -52,7 +52,7 @@ class Animal {
     System.out.println("animal : eat");
   }
 }
- 
+
 class Dog extends Animal {
   void eat() {
     System.out.println("dog : eat");
@@ -62,7 +62,7 @@ class Dog extends Animal {
     super.eat();  // super 调用父类方法
   }
 }
- 
+
 public class Test {
   public static void main(String[] args) {
     Animal a = new Animal();
