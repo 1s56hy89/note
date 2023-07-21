@@ -94,10 +94,14 @@
     ```
 
 3. 推送更改为
-    >git push github main
-    >git pull github main
-    >git push gitee main
-    >git pull gitee main
+
+    ```c
+    git push github main
+    git pull github main
+    git push gitee main
+    git pull gitee main
+    ```
 
 4. 删除一个远程仓库地址
-    >git remote rm gitee
+
+    `git remote rm gitee`
